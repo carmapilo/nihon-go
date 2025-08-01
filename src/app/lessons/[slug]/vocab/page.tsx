@@ -1,5 +1,4 @@
 import { notFound } from "next/navigation";
-import type { VocabEntry } from "@/types/lessonTypes";
 import { lessons } from "@/data/lessons";
 import {
   Carousel,
@@ -9,6 +8,8 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import Card from "@/app/components/lessons/Card";
+import { getLessonBySlug, getVocabByLessonSlug } from "@/lib/db";
+import { VocabEntry } from "@/types/lessonTypes";
 
 export default async function VocabPage({
   params,
@@ -16,21 +17,12 @@ export default async function VocabPage({
   params: Promise<{ slug: string; section: string }>;
 }) {
   const { slug } = await params;
-  const lesson = lessons.find((lesson) => lesson.slug === slug);
+  const lesson = await getLessonBySlug(slug);
   if (!lesson) {
     return notFound();
   }
 
-  let vocabData: VocabEntry[];
-
-  try {
-    // Dynamically import the vocab file based on slug
-    const vocabModule = await import(`@/data/vocab/${slug}`);
-    vocabData = vocabModule.default;
-  } catch (error) {
-    console.error(`Vocab file for ${slug} not found`, error);
-    return notFound(); // Show 404 if file doesn't exist
-  }
+  const vocabData = await getVocabByLessonSlug(slug);
 
   return (
     <div className="flex flex-col gap-4 p-4 h-screen">
@@ -45,7 +37,7 @@ export default async function VocabPage({
 
               <div className="flex-grow max-w-2xl">
                 <CarouselContent>
-                  {vocabData.map((entry) => (
+                  {vocabData.map((entry: VocabEntry) => (
                     <CarouselItem
                       key={entry.word}
                       className="h-full flex items-center justify-center w-full"

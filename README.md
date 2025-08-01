@@ -20,6 +20,68 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Database Setup
+
+This project uses PostgreSQL with Prisma ORM and Supabase. Follow these steps to set up the database:
+
+1. Make sure your Supabase project is set up with the correct connection details.
+
+2. Create a `.env` file in the root directory with your Supabase connection strings:
+
+   ```
+   DATABASE_URL="your-supabase-connection-string"
+   DIRECT_URL="your-supabase-direct-connection-string"
+   ```
+
+3. Run the Prisma migrations to create the database schema:
+
+   ```bash
+   npx prisma migrate dev --name init
+   ```
+
+4. Add lesson data to the database:
+   ```bash
+   npm run add-lesson
+   ```
+
+## Adding New Lessons
+
+To add new lessons with vocabulary and kanji:
+
+1. Create new data files in `src/data/vocab/` and `src/data/kanji/` following the existing patterns.
+
+2. Update the `lessonData` object in `src/scripts/add-lesson.ts` with your new lesson details and data imports.
+
+3. Run the add-lesson script:
+   ```bash
+   npm run add-lesson
+   ```
+
+## Updating Existing Lessons
+
+If you need to update vocabulary in an existing lesson:
+
+1. Update your vocabulary data file (e.g., `src/data/vocab/lesson1.ts`).
+
+2. Update the `lessonData` object in `src/scripts/update-lesson.ts` with the lesson slug you want to update.
+
+3. Run the update-lesson script:
+   ```bash
+   npm run update-lesson
+   ```
+
+This will replace all vocabulary for the specified lesson with your updated data.
+
+## Managing Vocabulary
+
+The `lib/db.ts` file contains helper functions for managing vocabulary:
+
+- `createLesson`: Create a new lesson
+- `addVocabToLesson`: Add vocabulary entries to a lesson
+- `deleteVocabEntry`: Delete a specific vocabulary entry by ID
+- `deleteAllVocabForLesson`: Delete all vocabulary for a specific lesson
+- `findVocabByWord`: Find a vocabulary entry by word (useful for getting IDs)
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:

@@ -1,0 +1,19 @@
+# Cursor Rules for nihon-go project
+
+# DATABASE PROTECTION RULES
+# -------------------------------
+# CRITICAL: Never perform database operations without explicit permission
+# This includes but is not limited to:
+# - prisma migrate (dev/deploy/reset)
+# - prisma db (push/pull/seed)
+# - Any SQL operations that modify schema
+# - Any operations that clear or reset data
+
+# REQUIRED WORKFLOW:
+# 1. ALWAYS explain database changes first
+# 2. ALWAYS ask for explicit permission before executing ANY database operation
+# 3. NEVER assume permission is granted for database operations
+# 4. ALWAYS show the commands that would be run, but DO NOT run them automatically
+
+# These rules apply to all environments (development, staging, production)
+# No exceptions to these rules are permitted without explicit user authorization 

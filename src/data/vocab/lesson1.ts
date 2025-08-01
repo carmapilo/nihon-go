@@ -1,12 +1,13 @@
 import { VocabEntry } from "@/types/lessonTypes";
 
-const vocab: VocabEntry[] = [
+export const lesson1Vocab: VocabEntry[] = [
   {
     word: "だいがく",
     reading: "daigaku",
     meaning: "College; University",
     type: "noun",
     category: "school",
+    order: 1,
   },
   {
     word: "こうこう",
@@ -14,6 +15,7 @@ const vocab: VocabEntry[] = [
     meaning: "High School",
     type: "noun",
     category: "school",
+    order: 2,
   },
   {
     word: "がくせい",
@@ -21,6 +23,7 @@ const vocab: VocabEntry[] = [
     meaning: "Student",
     type: "noun",
     category: "school",
+    order: 3,
   },
   {
     word: "だいがくせい",
@@ -28,6 +31,7 @@ const vocab: VocabEntry[] = [
     meaning: "College Student",
     type: "noun",
     category: "school",
+    order: 4,
   },
   {
     word: "りゅうがくせい",
@@ -35,6 +39,7 @@ const vocab: VocabEntry[] = [
     meaning: "International Student",
     type: "noun",
     category: "school",
+    order: 5,
   },
   {
     word: "せんせい",
@@ -42,6 +47,7 @@ const vocab: VocabEntry[] = [
     meaning: "Teacher; Professor",
     type: "noun",
     category: "school",
+    order: 6,
   },
   {
     word: "～ねんせい",
@@ -49,6 +55,7 @@ const vocab: VocabEntry[] = [
     meaning: "... year student",
     type: "noun",
     category: "school",
+    order: 7,
   },
   {
     word: "せんこう",
@@ -56,6 +63,7 @@ const vocab: VocabEntry[] = [
     meaning: "Major",
     type: "noun",
     category: "school",
+    order: 8,
   },
   {
     word: "わたし",
@@ -63,6 +71,7 @@ const vocab: VocabEntry[] = [
     meaning: "I",
     type: "noun",
     category: "people",
+    order: 9,
   },
   {
     word: "ともだち",
@@ -70,6 +79,7 @@ const vocab: VocabEntry[] = [
     meaning: "Friend",
     type: "noun",
     category: "people",
+    order: 10,
   },
   {
     word: "～さん",
@@ -77,6 +87,7 @@ const vocab: VocabEntry[] = [
     meaning: "Mr./Ms....",
     type: "noun",
     category: "people",
+    order: 11,
   },
   {
     word: "～じん",
@@ -84,6 +95,7 @@ const vocab: VocabEntry[] = [
     meaning: "...people",
     type: "noun",
     category: "people",
+    order: 12,
   },
   {
     word: "にほんじん",
@@ -91,6 +103,7 @@ const vocab: VocabEntry[] = [
     meaning: "Japanese People",
     type: "noun",
     category: "people",
+    order: 13,
   },
   {
     word: "いま",
@@ -98,6 +111,7 @@ const vocab: VocabEntry[] = [
     meaning: "Now",
     type: "noun",
     category: "time",
+    order: 14,
   },
   {
     word: "ごぜん",
@@ -105,6 +119,7 @@ const vocab: VocabEntry[] = [
     meaning: "Morning",
     type: "noun",
     category: "time",
+    order: 15,
   },
   {
     word: "ごご",
@@ -112,6 +127,7 @@ const vocab: VocabEntry[] = [
     meaning: "Afternoon",
     type: "noun",
     category: "time",
+    order: 16,
   },
   {
     word: "～じ",
@@ -119,6 +135,7 @@ const vocab: VocabEntry[] = [
     meaning: "O'Clock",
     type: "noun",
     category: "time",
+    order: 17,
   },
   {
     word: "はん",
@@ -126,6 +143,7 @@ const vocab: VocabEntry[] = [
     meaning: "Half",
     type: "noun",
     category: "time",
+    order: 18,
   },
   {
     word: "にほん",
@@ -133,6 +151,7 @@ const vocab: VocabEntry[] = [
     meaning: "Japan",
     type: "noun",
     category: "others",
+    order: 19,
   },
   {
     word: "アメリカ",
@@ -140,6 +159,7 @@ const vocab: VocabEntry[] = [
     meaning: "America",
     type: "noun",
     category: "others",
+    order: 20,
   },
   {
     word: "～ご",
@@ -147,6 +167,7 @@ const vocab: VocabEntry[] = [
     meaning: "...language",
     type: "noun",
     category: "others",
+    order: 21,
   },
   {
     word: "～さい",
@@ -154,6 +175,7 @@ const vocab: VocabEntry[] = [
     meaning: "Years Old",
     type: "noun",
     category: "others",
+    order: 22,
   },
   {
     word: "でんわ",
@@ -161,6 +183,7 @@ const vocab: VocabEntry[] = [
     meaning: "Phone",
     type: "noun",
     category: "others",
+    order: 23,
   },
   {
     word: "～ばん",
@@ -168,6 +191,7 @@ const vocab: VocabEntry[] = [
     meaning: "number...",
     type: "noun",
     category: "others",
+    order: 24,
   },
   {
     word: "ばんごう",
@@ -175,6 +199,7 @@ const vocab: VocabEntry[] = [
     meaning: "Number",
     type: "noun",
     category: "others",
+    order: 25,
   },
   {
     word: "なまえ",
@@ -182,6 +207,7 @@ const vocab: VocabEntry[] = [
     meaning: "Name",
     type: "noun",
     category: "others",
+    order: 26,
   },
   {
     word: "なん・なに",
@@ -189,6 +215,7 @@ const vocab: VocabEntry[] = [
     meaning: "What",
     type: "noun",
     category: "others",
+    order: 27,
   },
   {
     word: "あのう",
@@ -196,6 +223,7 @@ const vocab: VocabEntry[] = [
     meaning: "Um...",
     type: "noun",
     category: "expressions",
+    order: 28,
   },
   {
     word: "はい",
@@ -203,6 +231,7 @@ const vocab: VocabEntry[] = [
     meaning: "Yes",
     type: "noun",
     category: "expressions",
+    order: 29,
   },
   {
     word: "そうです",
@@ -210,6 +239,7 @@ const vocab: VocabEntry[] = [
     meaning: "That's right",
     type: "noun",
     category: "expressions",
+    order: 30,
   },
   {
     word: "そうですか",
@@ -217,6 +247,7 @@ const vocab: VocabEntry[] = [
     meaning: "Is that so?",
     type: "noun",
     category: "expressions",
+    order: 31,
   },
   {
     word: "イギリス",
@@ -224,6 +255,7 @@ const vocab: VocabEntry[] = [
     meaning: "England",
     type: "noun",
     category: "countries",
+    order: 32,
   },
   {
     word: "オーストラリア",
@@ -231,6 +263,7 @@ const vocab: VocabEntry[] = [
     meaning: "Australia",
     type: "noun",
     category: "countries",
+    order: 33,
   },
   {
     word: "かんこく",
@@ -238,6 +271,7 @@ const vocab: VocabEntry[] = [
     meaning: "Korea",
     type: "noun",
     category: "countries",
+    order: 34,
   },
   {
     word: "カナダ",
@@ -245,6 +279,7 @@ const vocab: VocabEntry[] = [
     meaning: "Canada",
     type: "noun",
     category: "countries",
+    order: 35,
   },
   {
     word: "ちゅうごく",
@@ -252,6 +287,7 @@ const vocab: VocabEntry[] = [
     meaning: "China",
     type: "noun",
     category: "countries",
+    order: 36,
   },
   {
     word: "インド",
@@ -259,6 +295,7 @@ const vocab: VocabEntry[] = [
     meaning: "India",
     type: "noun",
     category: "countries",
+    order: 37,
   },
   {
     word: "エジプト",
@@ -266,6 +303,7 @@ const vocab: VocabEntry[] = [
     meaning: "Egypt",
     type: "noun",
     category: "countries",
+    order: 38,
   },
   {
     word: "フィリピン",
@@ -273,6 +311,7 @@ const vocab: VocabEntry[] = [
     meaning: "Philippines",
     type: "noun",
     category: "countries",
+    order: 39,
   },
   {
     word: "アジアけんきゅう",
@@ -280,6 +319,7 @@ const vocab: VocabEntry[] = [
     meaning: "Asian Studies",
     type: "noun",
     category: "majors",
+    order: 40,
   },
   {
     word: "けいざい",
@@ -287,6 +327,7 @@ const vocab: VocabEntry[] = [
     meaning: "Economics",
     type: "noun",
     category: "majors",
+    order: 41,
   },
   {
     word: "こうがく",
@@ -294,6 +335,7 @@ const vocab: VocabEntry[] = [
     meaning: "Engineering",
     type: "noun",
     category: "majors",
+    order: 42,
   },
   {
     word: "こくさいかんけい",
@@ -301,6 +343,7 @@ const vocab: VocabEntry[] = [
     meaning: "International Relations",
     type: "noun",
     category: "majors",
+    order: 43,
   },
   {
     word: "コンピューター",
@@ -308,6 +351,7 @@ const vocab: VocabEntry[] = [
     meaning: "Computer",
     type: "noun",
     category: "majors",
+    order: 44,
   },
   {
     word: "せいじ",
@@ -315,6 +359,7 @@ const vocab: VocabEntry[] = [
     meaning: "Politics",
     type: "noun",
     category: "majors",
+    order: 45,
   },
   {
     word: "せいぶつがく",
@@ -322,6 +367,7 @@ const vocab: VocabEntry[] = [
     meaning: "Biology",
     type: "noun",
     category: "majors",
+    order: 46,
   },
   {
     word: "ビジネス",
@@ -329,6 +375,7 @@ const vocab: VocabEntry[] = [
     meaning: "Business",
     type: "noun",
     category: "majors",
+    order: 47,
   },
   {
     word: "ぶんがく",
@@ -336,6 +383,7 @@ const vocab: VocabEntry[] = [
     meaning: "Literature",
     type: "noun",
     category: "majors",
+    order: 48,
   },
   {
     word: "れきし",
@@ -343,6 +391,7 @@ const vocab: VocabEntry[] = [
     meaning: "History",
     type: "noun",
     category: "majors",
+    order: 49,
   },
   {
     word: "いしゃ",
@@ -350,6 +399,7 @@ const vocab: VocabEntry[] = [
     meaning: "Doctor",
     type: "noun",
     category: "occupations",
+    order: 50,
   },
   {
     word: "かいしゃいん",
@@ -357,6 +407,7 @@ const vocab: VocabEntry[] = [
     meaning: "Office Worker",
     type: "noun",
     category: "occupations",
+    order: 51,
   },
   {
     word: "かんごし",
@@ -364,6 +415,7 @@ const vocab: VocabEntry[] = [
     meaning: "Nurse",
     type: "noun",
     category: "occupations",
+    order: 52,
   },
   {
     word: "こうこうせい",
@@ -371,6 +423,7 @@ const vocab: VocabEntry[] = [
     meaning: "High School Student",
     type: "noun",
     category: "occupations",
+    order: 53,
   },
   {
     word: "しゅふ",
@@ -378,6 +431,7 @@ const vocab: VocabEntry[] = [
     meaning: "Housewife",
     type: "noun",
     category: "occupations",
+    order: 54,
   },
   {
     word: "だいがくいんせい",
@@ -385,6 +439,7 @@ const vocab: VocabEntry[] = [
     meaning: "Graduate Student",
     type: "noun",
     category: "occupations",
+    order: 55,
   },
   {
     word: "べんごし",
@@ -392,6 +447,7 @@ const vocab: VocabEntry[] = [
     meaning: "Lawyer",
     type: "noun",
     category: "occupations",
+    order: 56,
   },
   {
     word: "おかあさん",
@@ -399,6 +455,7 @@ const vocab: VocabEntry[] = [
     meaning: "Mother",
     type: "noun",
     category: "family",
+    order: 57,
   },
   {
     word: "おとうさん",
@@ -406,6 +463,7 @@ const vocab: VocabEntry[] = [
     meaning: "Father",
     type: "noun",
     category: "family",
+    order: 58,
   },
   {
     word: "おねえさん",
@@ -413,6 +471,7 @@ const vocab: VocabEntry[] = [
     meaning: "Older Sister",
     type: "noun",
     category: "family",
+    order: 59,
   },
   {
     word: "おにいさん",
@@ -420,6 +479,7 @@ const vocab: VocabEntry[] = [
     meaning: "Older Brother",
     type: "noun",
     category: "family",
+    order: 60,
   },
   {
     word: "いもうと",
@@ -427,6 +487,7 @@ const vocab: VocabEntry[] = [
     meaning: "Younger Sister",
     type: "noun",
     category: "family",
+    order: 61,
   },
   {
     word: "おとうと",
@@ -434,7 +495,6 @@ const vocab: VocabEntry[] = [
     meaning: "Younger Brother",
     type: "noun",
     category: "family",
+    order: 62,
   },
 ];
-
-export default vocab;

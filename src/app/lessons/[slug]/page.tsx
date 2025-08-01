@@ -1,13 +1,14 @@
 import { lessons } from "@/data/lessons";
 import SectionBlock from "@/app/components/lessons/SectionBlock";
+import { getLessonBySlug } from "@/lib/db";
 
-export default function LessonSlugPage({
+export default async function LessonSlugPage({
   params,
 }: {
   params: { slug: string };
 }) {
   const { slug } = params;
-  const lesson = lessons.find((lesson) => lesson.slug === slug);
+  const lesson = await getLessonBySlug(slug);
   if (!lesson) {
     return <div>Lesson not found</div>;
   }
@@ -30,7 +31,8 @@ export default function LessonSlugPage({
       </div>
       <div className="flex gap-4 w-full h-full justify-between items-center">
         <SectionBlock lesson={lesson} name="Vocabulary" url="vocab" />
-        {lesson.hasKanji ? (
+        {/* If the lesson is not lesson1 or lesson2, show the kanji section */}
+        {lesson.slug !== "lesson1" && lesson.slug !== "lesson2" ? (
           <SectionBlock lesson={lesson} name="Kanji" url="kanji" />
         ) : slug === "lesson1" ? (
           <SectionBlock lesson={lesson} name="Hiragana" url="hiragana" />

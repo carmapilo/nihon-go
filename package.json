@@ -6,16 +6,21 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "add-lesson": "npx ts-node -P tsconfig.scripts.json src/scripts/add-lesson.ts",
+    "update-lesson": "npx ts-node -P tsconfig.scripts.json src/scripts/update-lesson.ts",
+    "admin": "npx ts-node -r tsconfig-paths/register -P tsconfig.scripts.json src/scripts/admin-operations.ts"
   },
   "dependencies": {
     "@phosphor-icons/react": "^2.1.10",
+    "@prisma/client": "^6.10.1",
     "@radix-ui/react-slot": "^1.2.3",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "embla-carousel-react": "^8.6.0",
     "lucide-react": "^0.513.0",
     "next": "15.3.3",
+    "prisma": "^6.10.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "tailwind-merge": "^3.3.0"
@@ -29,6 +34,8 @@
     "eslint": "^9",
     "eslint-config-next": "15.3.3",
     "tailwindcss": "^4",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
     "tw-animate-css": "^1.3.4",
     "typescript": "^5"
   }

@@ -3,7 +3,8 @@ export interface Lesson {
   slug: string;
   description: string;
   locked: boolean;
-  hasKanji: boolean;
+  completed: boolean;
+  progress: number;
 }
 
 export interface Section {
@@ -18,6 +19,7 @@ export interface VocabEntry {
   meaning: string;
   type: "noun" | "verb";
   category: string;
+  order: number;
 }
 
 export interface KanjiEntry {

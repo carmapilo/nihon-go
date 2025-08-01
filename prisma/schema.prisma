@@ -1,0 +1,50 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Lesson {
+  id        String       @id @default(cuid())
+  title     String
+  slug      String       @unique
+  description String
+  locked    Boolean      @default(true)
+  completed Boolean      @default(false)
+  progress  Int          @default(0)
+  vocab     VocabEntry[]
+  kanji     KanjiEntry[]
+}
+
+model VocabEntry {
+  id        String    @id @default(cuid())
+  word      String
+  reading   String
+  definition   String
+  type      String    // e.g. "noun" or "verb"
+  mastered  Boolean   @default(false)
+  lessonId  String
+  order     Int       
+  lesson    Lesson    @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+}
+
+model KanjiEntry {
+  id        String    @id @default(cuid())
+  kanji     String
+  definition   String
+  // Make onyomi and kunyomi optional since our data doesn't have them yet
+  onyomi    String[]  @default([])
+  kunyomi   String[]  @default([])
+  lessonId  String
+  lesson    Lesson    @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+}
