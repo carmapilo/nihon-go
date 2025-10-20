@@ -17,9 +17,9 @@ export interface VocabEntry {
   word: string;
   reading: string;
   meaning: string;
-  type: "noun" | "verb";
-  category: string;
-  order: number;
+  type: string;
+  category?: string;
+  order?: number; // Made optional so it can be automatically assigned
 }
 
 export interface KanjiEntry {

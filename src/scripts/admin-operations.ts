@@ -3,7 +3,7 @@ import { lessons } from "@/data/lessons";
 import { createLesson, addVocabToLesson } from "@/lib/db";
 
 // Import your vocab data files
-import lesson1Vocab from "@/data/vocab/lesson1";
+import { lesson1Vocab } from "@/data/vocab/lesson1";
 // Add imports for other lesson vocab files as needed
 
 const prisma = new PrismaClient();
@@ -87,15 +87,69 @@ async function addAllLessons() {
   }
 }
 
+/**
+ * Update the order numbers for all vocabulary entries in a lesson
+ * This will automatically assign sequential order numbers (1, 2, 3, etc.)
+ * based on the current order in the database
+ */
+async function updateVocabOrder(slug: string) {
+  try {
+    // Find the lesson first
+    const lesson = await prisma.lesson.findUnique({
+      where: { slug },
+    });
+
+    if (!lesson) {
+      console.log(`Lesson with slug "${slug}" not found`);
+      return;
+    }
+
+    // Get all vocab entries for this lesson
+    const vocabEntries = await prisma.vocabEntry.findMany({
+      where: { lessonId: lesson.id },
+      orderBy: { order: "asc" }, // Order by existing order field
+    });
+
+    console.log(
+      `Found ${vocabEntries.length} vocabulary entries for lesson "${lesson.title}"`
+    );
+
+    // Update each entry with a new sequential order number
+    for (let i = 0; i < vocabEntries.length; i++) {
+      const entry = vocabEntries[i];
+      const newOrder = i + 1;
+
+      if (entry.order !== newOrder) {
+        await prisma.vocabEntry.update({
+          where: { id: entry.id },
+          data: { order: newOrder },
+        });
+        console.log(
+          `Updated order for "${entry.word}" from ${entry.order} to ${newOrder}`
+        );
+      }
+    }
+
+    console.log(
+      `Successfully updated order numbers for all vocabulary in lesson "${lesson.title}"`
+    );
+  } catch (error) {
+    console.error("Error updating vocabulary order:", error);
+  }
+}
+
 // Choose which operation to run
 async function main() {
   // Uncomment the operation you want to run
 
   // Delete a specific lesson
-  await deleteLesson("lesson-1");
+  // await deleteLesson("lesson-1");
 
   // Add all lessons from static data
   // await addAllLessons();
+
+  // Update vocabulary order numbers for a specific lesson
+  await updateVocabOrder("lesson1");
 
   await prisma.$disconnect();
 }

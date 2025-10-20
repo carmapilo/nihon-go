@@ -7,7 +7,8 @@ export async function createLesson(
   title: string,
   slug: string,
   description: string,
-  locked: boolean = true
+  locked: boolean = true,
+  number: number = -1
 ) {
   return prisma.lesson.create({
     data: {
@@ -15,6 +16,7 @@ export async function createLesson(
       slug,
       description,
       locked,
+      number,
     },
   });
 }
@@ -26,8 +28,9 @@ export async function addVocabToLesson(
   // Add order automatically if not provided
   const entriesWithOrder = vocabEntries.map((entry, index) => ({
     ...entry,
-    order: entry.order !== undefined ? entry.order : index + 1,
+    order: entry.order ?? index + 1, // Use nullish coalescing to assign order if undefined
   }));
+
   const createPromises = entriesWithOrder.map((entry) => {
     return prisma.vocabEntry.create({
       data: {
