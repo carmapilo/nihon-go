@@ -47,7 +47,17 @@ export async function addVocabToLesson(
   return Promise.all(createPromises);
 }
 
-export async function addKanjiToLesson(lessonId: string, kanjiEntries: any[]) {
+interface KanjiEntryInput {
+  kanji: string;
+  definition: string;
+  onyomi: string[];
+  kunyomi: string[];
+}
+
+export async function addKanjiToLesson(
+  lessonId: string,
+  kanjiEntries: KanjiEntryInput[]
+) {
   const createPromises = kanjiEntries.map((entry) => {
     return prisma.kanjiEntry.create({
       data: {

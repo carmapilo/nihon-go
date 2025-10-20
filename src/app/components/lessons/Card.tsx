@@ -2,12 +2,12 @@ export default function Card({
   word,
   reading,
   meaning,
-  category,
+  category = "vocabulary",
 }: {
   word: string;
   reading: string;
   meaning: string;
-  category: string;
+  category?: string;
 }) {
   return (
     <div className="flex flex-col gap-4 sm:gap-6 bg-white shadow-lg rounded-xl sm:rounded-2xl p-6 sm:p-10 md:p-12 border-2 border-gray-200 w-full max-w-[90vw] sm:max-w-lg min-h-[350px] sm:min-h-[400px] justify-center items-center hover:border-red-200 transition-colors mx-auto">

@@ -16,9 +16,9 @@ import { Button } from "@/components/ui/button";
 export default async function VocabPage({
   params,
 }: {
-  params: Promise<{ slug: string; section: string }>;
+  params: { slug: string };
 }) {
-  const { slug } = await params;
+  const { slug } = params;
   const lesson = await getLessonBySlug(slug);
   if (!lesson) {
     return notFound();

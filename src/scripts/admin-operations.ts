@@ -12,6 +12,7 @@ const prisma = new PrismaClient();
  * Delete a lesson by slug
  * This will cascade delete all associated vocab and kanji entries
  */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 async function deleteLesson(slug: string) {
   try {
     // Find the lesson first
@@ -38,6 +39,7 @@ async function deleteLesson(slug: string) {
 /**
  * Add all lessons from the static data file
  */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 async function addAllLessons() {
   try {
     for (const lessonData of lessons) {

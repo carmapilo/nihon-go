@@ -1,5 +1,5 @@
 import { PrismaClient } from "@prisma/client";
-import { createLesson, addVocabToLesson, addKanjiToLesson } from "@/lib/db";
+import { createLesson, addVocabToLesson } from "@/lib/db";
 import { lesson2Vocab } from "@/data/vocab/lesson2";
 import { VocabEntry } from "@/types/lessonTypes";
 
