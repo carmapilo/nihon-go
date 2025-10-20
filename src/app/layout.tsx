@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Zen_Maru_Gothic } from "next/font/google";
 import "./globals.css";
-import MainHeader from "./components/MainHeader";
+import Header from "./components/Header";
 const primaryFont = Zen_Maru_Gothic({
   variable: "--font-primary",
   subsets: ["latin"],
@@ -40,7 +40,7 @@ export default function RootLayout({
       <body
         className={`${primaryFont.className} ${primaryFont.variable} ${monoFont.variable} antialiased`}
       >
-        <MainHeader />
+        <Header />
         {children}
       </body>
     </html>
